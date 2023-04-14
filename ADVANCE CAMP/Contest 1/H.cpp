@@ -18,7 +18,8 @@ int main()
                 decode += keyboard[index - 1];
             }
         }
-        cout << decode << endl;
+        decode+="\n";
+        cout << decode;
+        decode="";
     }
-    cout<<endl;
 }
