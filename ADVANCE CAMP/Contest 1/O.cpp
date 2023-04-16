@@ -9,6 +9,10 @@ int main()
     {
         if (n < 0)
             break;
+        if(n==0){ 
+            cout<<"0\n";
+            continue;
+        }
         while(n!=0){
         reminder.push_back(n % 3);
         n /= 3;
