@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #include<windows.h>
+#include<conio.h>
 using namespace std;
 
 struct PhoneBook {
@@ -162,14 +163,8 @@ bool password(const string& password) {
 string getKey() {
     string password;
     char c;
-    DWORD mode;
-    HANDLE hInput = GetStdHandle(STD_INPUT_HANDLE);
-    GetConsoleMode(hInput, &mode);
-    SetConsoleMode(hInput, mode & (~ENABLE_ECHO_INPUT));
-    while ((c = cin.get())) {
-        if (c == '\r' || c == '\n') {
-            break;
-        } else if (c == '\b') {
+    while ((c = _getch()) != '\r') {
+        if (c == '\b') {
             if (!password.empty()) {
                 password.pop_back();
                 cout << "\b \b";
@@ -179,8 +174,9 @@ string getKey() {
             cout << '*';
         }
     }
+
     cout << endl;
-    SetConsoleMode(hInput, mode);
+
     return password;
 }
 
